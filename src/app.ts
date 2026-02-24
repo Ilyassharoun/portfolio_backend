@@ -38,9 +38,7 @@ const port = process.env.PORT || 3000;
 
 // Enable CORS for all routes
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3001'], // Replace with your frontend port
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: true,
   credentials: true
 }));
 
@@ -56,7 +54,7 @@ app.use('/api', routes);
 app.get('/', (req, res) => {
   res.json({ 
     message: 'API Server is running', 
-    docs: `http://localhost:${port}/docs`
+    docs: `/api-docs`
   });
 });
 
